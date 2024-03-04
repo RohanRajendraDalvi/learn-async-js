@@ -1,1 +1,17 @@
-Explain the code execution based on the order of the messages logged in src/quiz/promise-2darray.txt.
+Explain the code execution based on the order of the messages logged in src/quiz/promise-2darray.
+
+When sum2DArray(array2D) is called:
+
+"Sum called" is logged immediately.
+"returning from sum" is logged next 
+asynchronous setTimeout is waiting to execute its callback.
+ "resolving ..." is logged, and the promise is resolved with the sum of the array elements.
+The .then() method attached to the promise then logs "The sum is: 45".
+
+
+When sum2DArray('array2D') is called:
+
+"Sum called ..." is logged immediately.
+Since the input is not an array, "rejecting ..." is logged next.
+"returning from sum" is then logged as the function execution continues.
+The .catch() method attached to the promise logs "BAD INPUT: Expected array as input".
